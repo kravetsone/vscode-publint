@@ -32,7 +32,7 @@ jobs:
             - name: Setup Bun
               uses: oven-sh/setup-bun@v1
 
-            - name: Build
+            - name: Install
               run: bun install
 
             - name: Build
