@@ -34,5 +34,5 @@ export const publintToVSCodeMap: Record<
 > = {
 	warning: vscode.DiagnosticSeverity.Warning,
 	error: vscode.DiagnosticSeverity.Error,
-	suggestion: vscode.DiagnosticSeverity.Hint,
+	suggestion: vscode.DiagnosticSeverity.Information,
 };
