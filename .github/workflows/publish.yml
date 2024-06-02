@@ -1,7 +1,6 @@
-on:
-    push:
-        branches:
-            - main
+name: Publish extension
+
+on: workflow_dispatch
 
 jobs:
     build:
