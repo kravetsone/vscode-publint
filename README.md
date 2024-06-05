@@ -27,6 +27,8 @@
 
 <br>
 
+We recommend using it together with the [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens) extension.
+
 ### Thanks
 
--   [publint](https://github.com/bluwy/publint), for the original package for the lint `package.json` file
+-   [publint](https://github.com/bluwy/publint), for the original package for the lint `package.json` file.
