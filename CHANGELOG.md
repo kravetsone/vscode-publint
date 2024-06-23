@@ -2,6 +2,7 @@
 
 ## [0.0.2]
 
+-   downgrade required version
 -   Add simple test
 -   Use `node:path` to handle basename/dirname
 
