@@ -45,6 +45,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.8.2",
+    "@types/bun": "^1.1.5",
     "@types/mocha": "^10.0.7",
     "@types/node": "^18.19.39",
     "@types/vscode": "^1.90.0",
