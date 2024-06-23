@@ -15,7 +15,11 @@ export async function activate() {
 
 	async function updateDiagnostic(document: vscode.TextDocument) {
 		try {
-			if (!document.uri.fsPath.includes("package.json")) return;
+			if (
+				!document.uri.fsPath.includes("package.json") ||
+				document.languageId !== "json"
+			)
+				return;
 
 			const diagnostics: vscode.Diagnostic[] = [];
 
@@ -52,6 +56,10 @@ export async function activate() {
 		} catch (error) {
 			console.error(error);
 		}
+	}
+
+	for (const editor of vscode.window.visibleTextEditors) {
+		updateDiagnostic(editor.document);
 	}
 
 	vscode.workspace.onDidOpenTextDocument((document) => {
