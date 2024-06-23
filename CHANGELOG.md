@@ -2,7 +2,8 @@
 
 ## [0.0.2]
 
--   use `node:path` to handle basename/dirname
+-   Add simple test
+-   Use `node:path` to handle basename/dirname
 
 Fixes:
 
