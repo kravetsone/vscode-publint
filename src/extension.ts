@@ -1,3 +1,4 @@
+import path from "node:path";
 import * as vscode from "vscode";
 import {
 	ANSI_COLORS_REGEXP,
@@ -9,14 +10,14 @@ export async function activate() {
 	const { publint } = await import("publint");
 	const { formatMessage } = await import("publint/utils");
 	const jsonc = await import("jsonc-parser/lib/esm/main.js");
-	console.log("SOME");
+
 	const diagnosticCollection =
 		vscode.languages.createDiagnosticCollection("lints");
 
 	async function updateDiagnostic(document: vscode.TextDocument) {
 		try {
 			if (
-				!document.uri.fsPath.includes("package.json") ||
+				!path.basename(document.uri.fsPath).includes("package.json") ||
 				document.languageId !== "json"
 			)
 				return;
@@ -24,7 +25,7 @@ export async function activate() {
 			const diagnostics: vscode.Diagnostic[] = [];
 
 			const { messages } = await publint({
-				pkgDir: document.uri.fsPath.replace("package.json", ""),
+				pkgDir: path.dirname(document.uri.fsPath),
 			});
 			const text = document.getText();
 			const packageJSON = JSON.parse(text);
