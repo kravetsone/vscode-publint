@@ -39,7 +39,22 @@ const ctx = await esbuild.context({
 	plugins: [
 		/* add to the end of plugins array */
 		esbuildProblemMatcherPlugin,
-		purgePolyfills.esbuild({}),
+		purgePolyfills.esbuild({
+			replacements: {
+				"fs.realpath": {
+					default: `require("node:fs")`,
+				},
+				// picocolors useless because we replace ANSI by regexp
+				// so... why don't replace it?
+				// TODO: more elegant replacer
+				picocolors: {
+					default: `{
+						bold: (s) => s,
+						yellow: (s) => s
+					}`,
+				},
+			},
+		}),
 	],
 });
 if (watch) {

@@ -1,10 +1,6 @@
 import path from "node:path";
 import * as vscode from "vscode";
-import {
-	ANSI_COLORS_REGEXP,
-	getRangeForKey,
-	publintToVSCodeMap,
-} from "./utils";
+import { getRangeForKey, publintToVSCodeMap } from "./utils";
 
 export async function activate() {
 	const { publint } = await import("publint");
@@ -31,6 +27,7 @@ export async function activate() {
 			const { messages } = await publint({
 				pkgDir: path.dirname(document.uri.fsPath),
 			});
+
 			const text = document.getText();
 			const packageJSON = JSON.parse(text);
 
@@ -47,12 +44,7 @@ export async function activate() {
 				const range = getRangeForKey(jsonc, document, message.path);
 				const diagnostic = new vscode.Diagnostic(
 					range,
-					`${
-						formatMessage(message, packageJSON)?.replaceAll(
-							ANSI_COLORS_REGEXP,
-							"",
-						) || message.code
-					}`,
+					`${formatMessage(message, packageJSON) || message.code}`,
 					publintToVSCodeMap[message.type],
 				);
 
