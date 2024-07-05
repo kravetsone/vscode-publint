@@ -29,6 +29,13 @@
 
 We recommend using it together with the [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens) extension.
 
+### Configuration (all with `vscode-publint.` prefix)
+
+| Key                      | Type     | Default | Description                                              |
+| ------------------------ | -------- | ------- | -------------------------------------------------------- |
+| ignore-private-packages? | boolean  | true    | Ignore packages with `\"private\": true`?                |
+| ignored-rules?           | string[] | []      | List of ignored [https://publint.dev/rules#](rule) codes |
+
 ### Thanks
 
 -   [publint](https://github.com/bluwy/publint), for the original package for the lint `package.json` file.
