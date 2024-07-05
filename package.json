@@ -11,6 +11,15 @@
     "engines": {
         "vscode": "^1.10.0"
     },
+    "contributes": {
+        "configuration": {
+            "vscode-publint.ignore-private-packages": {
+                "description": "Ignore packages with `\"private\": true ?`",
+                "type": "boolean",
+                "default": true
+            }
+        }
+    },
     "icon": "./icon.png",
     "bugs": {
         "url": "https://github.com/kravetsone/vscode-publint/issues",

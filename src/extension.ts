@@ -15,6 +15,8 @@ export async function activate() {
 		vscode.languages.createDiagnosticCollection("lints");
 
 	async function updateDiagnostic(document: vscode.TextDocument) {
+		const config = vscode.workspace.getConfiguration("vscode-publint");
+
 		try {
 			if (
 				!path.basename(document.uri.fsPath).includes("package.json") ||
@@ -30,7 +32,12 @@ export async function activate() {
 			const text = document.getText();
 			const packageJSON = JSON.parse(text);
 
-			if (packageJSON.private) return;
+			// private property can be boolean or boolean-string https://json.schemastore.org/package.json
+			if (
+				(packageJSON.private === true || packageJSON.private === "true") &&
+				config.get<boolean>("ignore-private-packages")
+			)
+				return diagnosticCollection.set(document.uri, []);
 
 			for (const message of messages) {
 				const range = getRangeForKey(jsonc, document, message.path);
