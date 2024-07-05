@@ -17,6 +17,8 @@ export async function activate() {
 	async function updateDiagnostic(document: vscode.TextDocument) {
 		const config = vscode.workspace.getConfiguration("vscode-publint");
 
+		const ignoredRules = config.get<string[]>("ignored-rules");
+
 		try {
 			if (
 				!path.basename(document.uri.fsPath).includes("package.json") ||
@@ -40,6 +42,8 @@ export async function activate() {
 				return diagnosticCollection.set(document.uri, []);
 
 			for (const message of messages) {
+				if (ignoredRules?.includes(message.code)) continue;
+
 				const range = getRangeForKey(jsonc, document, message.path);
 				const diagnostic = new vscode.Diagnostic(
 					range,
