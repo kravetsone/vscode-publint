@@ -30,6 +30,8 @@ export async function activate() {
 			const text = document.getText();
 			const packageJSON = JSON.parse(text);
 
+			if (packageJSON.private) return;
+
 			for (const message of messages) {
 				const range = getRangeForKey(jsonc, document, message.path);
 				const diagnostic = new vscode.Diagnostic(
