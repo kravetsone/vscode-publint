@@ -5,6 +5,7 @@
 -   add `ignore-private-packages` option
 -   add `ignored-rules` option
 -   improve bundle size (remove picocolors and fs.realpath, thanks to https://github.com/danielroe/unplugin-purge-polyfills)
+-   some optimization (prevent useless actions and etc)
 
 Fixes:
 
