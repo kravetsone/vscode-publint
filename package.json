@@ -64,7 +64,7 @@
         "@types/bun": "^1.1.6",
         "@types/mocha": "^10.0.7",
         "@types/node": "^18.19.39",
-        "@types/vscode": "^1.91.0",
+        "@types/vscode": "^1.10.0",
         "@typescript-eslint/eslint-plugin": "^7.15.0",
         "@typescript-eslint/parser": "^7.15.0",
         "@vscode/test-cli": "^0.0.9",
