@@ -13,18 +13,21 @@
     },
     "contributes": {
         "configuration": {
-            "vscode-publint.ignore-private-packages": {
-                "description": "Ignore packages with `\"private\": true`?",
-                "type": "boolean",
-                "default": true
-            },
-            "vscode-publint.ignored-rules": {
-                "description": "List of ignored [https://publint.dev/rules#](rule) codes",
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "title": "Publint",
+            "properties": {
+                "vscode-publint.ignore-private-packages": {
+                    "description": "Ignore packages with `\"private\": true`?",
+                    "type": "boolean",
+                    "default": true
                 },
-                "default": []
+                "vscode-publint.ignored-rules": {
+                    "description": "List of ignored [https://publint.dev/rules#](rule) codes",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "default": []
+                }
             }
         }
     },
