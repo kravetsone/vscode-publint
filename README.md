@@ -34,7 +34,7 @@ We recommend using it together with the [Error Lens](https://marketplace.visuals
 | Key                      | Type     | Default | Description                                              |
 | ------------------------ | -------- | ------- | -------------------------------------------------------- |
 | ignore-private-packages? | boolean  | true    | Ignore packages with `\"private\": true`?                |
-| ignored-rules?           | string[] | []      | List of ignored [rule](https://publint.dev/rules#) codes |
+| ignored-rules?           | string[] | []      | List of ignored [rule](https://publint.dev/rules) codes |
 
 ### Thanks
 
