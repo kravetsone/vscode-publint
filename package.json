@@ -21,7 +21,7 @@
                     "default": true
                 },
                 "vscode-publint.ignored-rules": {
-                    "description": "List of ignored [rule](https://publint.dev/rules#) codes",
+                    "description": "List of ignored [rule](https://publint.dev/rules) codes",
                     "type": "array",
                     "items": {
                         "type": "string"
