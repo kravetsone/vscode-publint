@@ -5,7 +5,8 @@ import { getRangeForKey, isJSONParsable, publintToVSCodeMap } from "./utils";
 export async function activate() {
 	const { publint } = await import("publint");
 	const { formatMessage } = await import("publint/utils");
-	const jsonc = await import("jsonc-parser/lib/esm/main.js");
+	// const jsonc = await import("jsonc-parser/lib/esm/main.js");
+	const jsonpos = await import("jsonpos");
 
 	const diagnosticCollection =
 		vscode.languages.createDiagnosticCollection("lints");
@@ -39,12 +40,12 @@ export async function activate() {
 				pkgDir: path.dirname(document.uri.fsPath),
 			});
 
-			const jsonTree = jsonc.parseTree(text);
+			const jsonTree = jsonpos.getParsedByString(text);
 
 			for (const message of messages) {
 				if (ignoredRules?.includes(message.code)) continue;
 
-				const range = getRangeForKey(jsonTree, jsonc, document, message.path);
+				const range = getRangeForKey(jsonTree, jsonpos, document, message.path);
 				const diagnostic = new vscode.Diagnostic(
 					range,
 					formatMessage(message, packageJSON) || message.code,

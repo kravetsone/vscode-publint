@@ -7,7 +7,7 @@
         "name": "kravets"
     },
     "description": "publint for VS Code",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "engines": {
         "vscode": "^1.10.0"
     },
@@ -58,7 +58,7 @@
         "watch-tests": "tsc -p . -w --outDir out",
         "pretest": "npm run compile-tests && npm run compile && npm run lint",
         "check-types": "tsc --noEmit",
-        "lint": "bunx @biomejs/biome check --apply ./src",
+        "lint": "bunx @biomejs/biome check --write ./src",
         "test": "vscode-test",
         "deploy": "vsce publish"
     },
@@ -80,7 +80,7 @@
         "unplugin-purge-polyfills": "^0.0.4"
     },
     "dependencies": {
-        "jsonc-parser": "^3.3.1",
+        "jsonpos": "^4.1.2",
         "publint": "^0.2.8"
     },
     "license": "SEE LICENSE IN LICENSE",
