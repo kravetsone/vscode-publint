@@ -31,11 +31,15 @@ We recommend using it together with the [Error Lens](https://marketplace.visuals
 
 ### Configuration (all with `vscode-publint.` prefix)
 
-| Key                      | Type     | Default | Description                                              |
-| ------------------------ | -------- | ------- | -------------------------------------------------------- |
-| ignore-private-packages? | boolean  | true    | Ignore packages with `\"private\": true`?                |
+| Key                      | Type     | Default | Description                                             |
+| ------------------------ | -------- | ------- | ------------------------------------------------------- |
+| ignore-private-packages? | boolean  | true    | Ignore packages with `\"private\": true`?               |
 | ignored-rules?           | string[] | []      | List of ignored [rule](https://publint.dev/rules) codes |
 
 ### Thanks
 
 -   [publint](https://github.com/bluwy/publint), for the original package for the lint `package.json` file.
+
+### TODO:
+
+-   [ ] reuse [json-ext](https://www.npmjs.com/package/json-cst) from publint dependencies instead of jsonpos (similar packages)
