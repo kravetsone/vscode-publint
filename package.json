@@ -1,87 +1,83 @@
 {
-    "name": "vscode-publint",
-    "type": "commonjs",
-    "displayName": "publint",
-    "publisher": "kravets",
-    "author": {
-        "name": "kravets"
-    },
-    "description": "publint for VS Code",
-    "version": "0.0.4",
-    "engines": {
-        "vscode": "^1.10.0"
-    },
-    "contributes": {
-        "configuration": {
-            "title": "Publint",
-            "properties": {
-                "vscode-publint.ignore-private-packages": {
-                    "markdownDescription": "Ignore packages with `\"private\": true`?",
-                    "type": "boolean",
-                    "default": true
-                },
-                "vscode-publint.ignored-rules": {
-                    "markdownDescription": "List of ignored [rule](https://publint.dev/rules) codes",
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "default": []
-                }
-            }
-        }
-    },
-    "icon": "./icon.png",
-    "bugs": {
-        "url": "https://github.com/kravetsone/vscode-publint/issues"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/kravetsone/vscode-publint.git"
-    },
-    "homepage": "https://github.com/kravetsone/vscode-publint/blob/main/README.md",
-    "categories": [
-        "Linters"
-    ],
-    "activationEvents": [
-        "onLanguage:json"
-    ],
-    "main": "./dist/extension.js",
-    "scripts": {
-        "vscode:prepublish": "npm run package",
-        "compile": "npm run check-types && npm run lint && bun esbuild.mts",
-        "watch": "npm-run-all -p watch:*",
-        "watch:esbuild": "bun esbuild.mts --watch",
-        "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
-        "package": "npm run check-types && npm run lint && bun esbuild.mts --production",
-        "compile-tests": "tsc -p . --outDir out",
-        "watch-tests": "tsc -p . -w --outDir out",
-        "pretest": "npm run compile-tests && npm run compile && npm run lint",
-        "check-types": "tsc --noEmit",
-        "lint": "bunx @biomejs/biome check --write ./src",
-        "test": "vscode-test",
-        "deploy": "vsce publish"
-    },
-    "devDependencies": {
-        "@biomejs/biome": "^1.8.3",
-        "@types/bun": "^1.1.6",
-        "@types/mocha": "^10.0.7",
-        "@types/node": "^18.19.39",
-        "@types/vscode": "^1.10.0",
-        "@vscode/test-cli": "^0.0.9",
-        "@vscode/test-electron": "^2.4.1",
-        "@vscode/vsce": "^2.29.0",
-        "esbuild": "^0.21.5",
-        "npm-run-all": "^4.1.5",
-        "typescript": "^5.5.3",
-        "unplugin-purge-polyfills": "^0.0.4"
-    },
-    "dependencies": {
-        "jsonpos": "^4.1.2",
-        "publint": "^0.2.8"
-    },
-    "license": "SEE LICENSE IN LICENSE",
-    "files": [
-        "dist"
-    ]
+	"name": "vscode-publint",
+	"type": "commonjs",
+	"displayName": "publint",
+	"publisher": "kravets",
+	"author": {
+		"name": "kravets"
+	},
+	"description": "publint for VS Code",
+	"version": "0.0.4",
+	"engines": {
+		"vscode": "^1.10.0"
+	},
+	"contributes": {
+		"configuration": {
+			"title": "Publint",
+			"properties": {
+				"vscode-publint.ignore-private-packages": {
+					"markdownDescription": "Ignore packages with `\"private\": true`?",
+					"type": "boolean",
+					"default": true
+				},
+				"vscode-publint.ignored-rules": {
+					"markdownDescription": "List of ignored [rule](https://publint.dev/rules) codes",
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"default": []
+				}
+			}
+		}
+	},
+	"icon": "./icon.png",
+	"bugs": {
+		"url": "https://github.com/kravetsone/vscode-publint/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/kravetsone/vscode-publint.git"
+	},
+	"homepage": "https://github.com/kravetsone/vscode-publint/blob/main/README.md",
+	"categories": ["Linters"],
+	"activationEvents": ["onLanguage:json"],
+	"main": "./dist/extension.js",
+	"scripts": {
+		"vscode:prepublish": "npm run package",
+		"compile": "npm run check-types && npm run lint && bun esbuild.mts",
+		"watch": "npm-run-all -p watch:*",
+		"watch:esbuild": "bun esbuild.mts --watch",
+		"watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+		"package": "npm run check-types && npm run lint && bun esbuild.mts --production",
+		"compile-tests": "tsc -p . --outDir out",
+		"watch-tests": "tsc -p . -w --outDir out",
+		"pretest": "npm run compile-tests && npm run compile && npm run lint",
+		"check-types": "tsc --noEmit",
+		"lint": "bunx @biomejs/biome check --write ./src",
+		"test": "vscode-test",
+		"deploy": "vsce publish",
+		"sonda": "SONDA=1 bun esbuild.mts"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@types/bun": "^1.1.14",
+		"@types/mocha": "^10.0.10",
+		"@types/node": "^22.10.5",
+		"@types/vscode": "^1.96.0",
+		"@vscode/test-cli": "^0.0.10",
+		"@vscode/test-electron": "^2.4.1",
+		"@vscode/vsce": "^3.2.1",
+		"esbuild": "^0.24.2",
+		"npm-run-all": "^4.1.5",
+		"sonda": "^0.7.1",
+		"typescript": "^5.7.2",
+		"unplugin-purge-polyfills": "^0.0.7"
+	},
+	"dependencies": {
+		"jsonpos": "^4.1.2",
+		"publint": "^0.3.0"
+	},
+	"license": "SEE LICENSE IN LICENSE",
+	"files": ["dist"]
 }

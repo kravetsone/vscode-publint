@@ -1,4 +1,5 @@
 import esbuild, { type Plugin } from "esbuild";
+import Sonda from "sonda/esbuild";
 import { purgePolyfills } from "unplugin-purge-polyfills";
 
 const production = process.argv.includes("--production");
@@ -55,7 +56,8 @@ const ctx = await esbuild.context({
 				},
 			},
 		}),
-	],
+		process.env.SONDA ? Sonda() : undefined,
+	].filter((p) => p !== undefined),
 });
 if (watch) {
 	await ctx.watch();
