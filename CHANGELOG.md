@@ -1,5 +1,13 @@
 # Change Log
 
+## [0.1.0]
+
+-   Use [Sonda](https://github.com/filipsobol/sonda) to analyze bundle size
+-   Update `publint` to `0.3.0` (Bundle size minified (**GZIP**): `25.53 KiB` => `13.89 KiB` or **Uncompressed** `79.48 KiB` => `39.42 KiB`)
+-   Other dev bumps
+
+<!-- - Un-minified data: Update `publint` to `0.3.0` (Bundle size (**GZIP**): `35.62 KiB` => `20.27 KiB` or **Uncompressed** `182.71 KiB` => `87.01 KiB`) -->
+
 ## [0.0.4]
 
 -   fixed the display of settings (https://github.com/kravetsone/vscode-publint/issues/3)
