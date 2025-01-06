@@ -79,5 +79,5 @@
 		"publint": "^0.3.0"
 	},
 	"license": "SEE LICENSE IN LICENSE",
-	"files": ["dist"]
+	"files": ["dist", "icon.png"]
 }
