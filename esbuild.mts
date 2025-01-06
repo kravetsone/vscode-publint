@@ -30,7 +30,7 @@ const ctx = await esbuild.context({
 	bundle: true,
 	format: "cjs",
 	minify: production,
-	sourcemap: !production,
+	sourcemap: process.env.SONDA ? true : !production,
 	sourcesContent: false,
 	platform: "node",
 	target: "node18",
@@ -56,7 +56,12 @@ const ctx = await esbuild.context({
 				},
 			},
 		}),
-		process.env.SONDA ? Sonda() : undefined,
+		process.env.SONDA
+			? Sonda({
+					gzip: true,
+					brotli: true,
+				})
+			: undefined,
 	].filter((p) => p !== undefined),
 });
 if (watch) {

@@ -7,7 +7,7 @@
 		"name": "kravets"
 	},
 	"description": "publint for VS Code",
-	"version": "0.0.4",
+	"version": "0.1.0",
 	"engines": {
 		"vscode": "^1.10.0"
 	},
@@ -57,7 +57,7 @@
 		"lint": "bunx @biomejs/biome check --write ./src",
 		"test": "vscode-test",
 		"deploy": "vsce publish",
-		"sonda": "SONDA=1 bun esbuild.mts"
+		"sonda": "SONDA=1 bun esbuild.mts --production"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
